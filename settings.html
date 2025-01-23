@@ -1,0 +1,218 @@
+<html>
+<head>
+    <title>Geekout - Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" >
+    <style>
+        
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .settings-header {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #00ff00;
+        }
+
+        .settings-section {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .settings-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #00ff00;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            background-color: #3a3a3a;
+            border: 1px solid #4a4a4a;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2300ff00' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-switch input[type="checkbox"] {
+            display: none;
+        }
+
+        .toggle-switch label {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            background-color: #3a3a3a;
+            border-radius: 34px;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .toggle-switch label::after {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            top: 4px;
+            left: 4px;
+            transition: transform 0.2s;
+        }
+
+        .toggle-switch input[type="checkbox"]:checked + label {
+            background-color: #00ff00;
+        }
+
+        .toggle-switch input[type="checkbox"]:checked + label::after {
+            transform: translateX(26px);
+        }
+
+        .save-btn {
+            background-color: #00ff00;
+            color: #1e1e1e;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .save-btn:hover {
+            background-color: #00cc00;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Geekout</div>
+        <nav>
+          <a href="index.html" class="nav-item">
+            <i class="fas fa-th-large"></i>
+            Dashboard
+          </a>
+          <a href="collections.html" class="nav-item">
+            <i class="fas fa-book"></i>
+            My Collections
+          </a>
+          <a href="favourites.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            Favourites
+          </a>
+          <div class="nav-bottom">
+            <a href="settings.html" class="nav-item active">
+              <i class="fas fa-cog"></i>
+              Settings
+            </a>
+            <a href="login.html" class="nav-item">
+              <i class="fas fa-sign-out-alt"></i>
+              Log out
+            </a>
+          </div>
+        </nav>
+      </div>
+
+    <div class="main-content">
+        <h1 class="settings-header">Settings</h1>
+        <div class="settings-section">
+            <h2>Account Settings</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" value="JohnDoe123">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" value="johndoe@example.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Change Password</label>
+                <input type="password" id="password" placeholder="Enter new password">
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Preferences</h2>
+            <div class="form-group">
+                <label for="language">Language</label>
+                <select id="language">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="theme">Theme</label>
+                <select id="theme">
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="notifications" checked>
+                    <label for="notifications"></label>
+                    <span>Enable Notifications</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Privacy</h2>
+            <div class="form-group">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="public-profile" checked>
+                    <label for="public-profile"></label>
+                    <span>Public Profile</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="show-activity">
+                    <label for="show-activity"></label>
+                    <span>Show Reading Activity</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="save-btn">Save Changes</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<html>
+<head>
+    <title>Geekout - Notifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" >
+    <style>
+       .profile-notification-icon {
+  font-size: 30px;
+  color: #00ff00;
+}
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00ff00;
+        }
+
+        .notifications-list {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .notification-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #3a3a3a;
+            transition: background-color 0.3s ease;
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-item:hover {
+            background-color: #3a3a3a;
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #00ff00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .notification-icon i {
+            color: #1e1e1e;
+            font-size: 20px;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .notification-description {
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+        .notification-time {
+            font-size: 12px;
+            color: #808080;
+        }
+
+        .unread {
+            background-color: rgba(0, 255, 0, 0.1);
+        }
+
+        .unread .notification-title {
+            font-weight: 700;
+        }
+
+        .clear-all {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            background-color: #3a3a3a;
+            color: #00ff00;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .clear-all:hover {
+            background-color: #4a4a4a;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Geekout</div>
+        <nav>
+          <a href="index.html" class="nav-item active">
+            <i class="fas fa-th-large"></i>
+            Dashboard
+          </a>
+          <a href="collections.html" class="nav-item">
+            <i class="fas fa-book"></i>
+            My Collections
+          </a>
+          <a href="favourites.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            Favourites
+          </a>
+          <div class="nav-bottom">
+            <a href="settings.html" class="nav-item">
+              <i class="fas fa-cog"></i>
+              Settings
+            </a>
+            <a href="login.html" class="nav-item">
+              <i class="fas fa-sign-out-alt"></i>
+              Log out
+            </a>
+          </div>
+        </nav>
+      </div>
+
+    <div class="main-content">
+        <div class="top-bar">
+            <h1 class="page-title">Notifications</h1>
+            <div class="profile-section">
+                <div class="notification-container">
+                  <a href="notifications.html">
+                    <i class="far fa-bell profile-notification-icon"></i>
+                    <span class="notification-badge">3</span>
+                  </a>
+                </div>
+        
+                <div class="profile-pic">
+                  <a href="profile.html"
+                    ><img src="/assets/images/profile-pic.jpg" alt="Profile Photo"
+                  /></a>
+                </div>
+              </div>
+        </div>
+
+        <div class="notifications-list">
+            <div class="notification-item unread">
+                <div class="notification-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">New Comic Released</div>
+                    <div class="notification-description">Batman: The Long Halloween Part Two is now available!</div>
+                    <div class="notification-time">2 hours ago</div>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <div class="notification-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Collection Milestone</div>
+                    <div class="notification-description">You've collected 50 comics! Unlock a new achievement.</div>
+                    <div class="notification-time">1 day ago</div>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Friend Activity</div>
+                    <div class="notification-description">John Doe added 3 new comics to their collection.</div>
+                    <div class="notification-time">2 days ago</div>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-percent"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Special Offer</div>
+                    <div class="notification-description">Get 20% off on all Marvel comics this week!</div>
+                    <div class="notification-time">3 days ago</div>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Account Update</div>
+                    <div class="notification-description">Your account settings have been updated successfully.</div>
+                    <div class="notification-time">1 week ago</div>
+                </div>
+            </div>
+            <a href="#" class="clear-all">Clear All Notifications</a>
+        </div>
+    </div>
+</body>
+</html>

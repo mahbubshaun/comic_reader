@@ -1,0 +1,215 @@
+<html>
+  <head>
+    <title>GEEKOUT - Favourites</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .main-content {
+        flex: 1;
+        padding: 20px 40px;
+        overflow-y: auto;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+
+      .header h1 {
+        color: #00ff00;
+        font-size: 28px;
+      }
+
+      .favourites-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .favourite-item {
+        background-color: #242424;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.3s ease;
+        border: 1px solid #3a3a3a;
+      }
+
+      .favourite-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+        border-color: #00ff00;
+      }
+
+      .favourite-item img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+      }
+
+      .favourite-info {
+        padding: 12px;
+      }
+
+      .favourite-title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+
+      .favourite-meta {
+        font-size: 14px;
+        color: #999;
+      }
+
+      .favourite-actions {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .favourite-actions i {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #00ff00;
+        padding: 8px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">Geekout</div>
+      <nav>
+        <a href="index.html" class="nav-item">
+          <i class="fas fa-th-large"></i>
+          Dashboard
+        </a>
+        <a href="collections.html" class="nav-item">
+          <i class="fas fa-book"></i>
+          My Collections
+        </a>
+        <a href="favourites.html" class="nav-item active">
+          <i class="fas fa-bookmark"></i>
+          Favourites
+        </a>
+        <div class="nav-bottom">
+          <a href="settings.html" class="nav-item">
+            <i class="fas fa-cog"></i>
+            Settings
+          </a>
+          <a href="login.html" class="nav-item">
+            <i class="fas fa-sign-out-alt"></i>
+            Log out
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="main-content">
+      <div class="header">
+        <h1>Favourites</h1>
+        <div class="profile-section">
+          <div class="notification-container">
+            <a href="notifications.html">
+              <i class="far fa-bell notification-icon"></i>
+              <span class="notification-badge">3</span>
+            </a>
+          </div>
+
+          <div class="profile-pic">
+            <a href="profile.html"
+              ><img src="/assets/images/profile-pic.jpg" alt="Profile Photo"
+            /></a>
+          </div>
+        </div>
+      </div>
+      <div class="favourites-grid">
+        <div class="favourite-item">
+          <img
+            src="https://placehold.co/200x280"
+            alt="Comic book cover featuring a superhero in a dramatic pose"
+          />
+          <div class="favourite-info">
+            <div class="favourite-title">Superman: Man of Steel</div>
+            <div class="favourite-meta">Issue #1 • DC Comics</div>
+          </div>
+          <div class="favourite-actions">
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+        <div class="favourite-item">
+          <img
+            src="https://placehold.co/200x280"
+            alt="Comic book cover showing a group of superheroes in action"
+          />
+          <div class="favourite-info">
+            <div class="favourite-title">Avengers: Assemble</div>
+            <div class="favourite-meta">Issue #5 • Marvel Comics</div>
+          </div>
+          <div class="favourite-actions">
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+        <div class="favourite-item">
+          <img
+            src="https://placehold.co/200x280"
+            alt="Comic book cover depicting a dark and brooding Batman"
+          />
+          <div class="favourite-info">
+            <div class="favourite-title">Batman: The Dark Knight</div>
+            <div class="favourite-meta">Issue #3 • DC Comics</div>
+          </div>
+          <div class="favourite-actions">
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+        <div class="favourite-item">
+          <img
+            src="https://placehold.co/200x280"
+            alt="Comic book cover showing Spider-Man swinging through New York City"
+          />
+          <div class="favourite-info">
+            <div class="favourite-title">The Amazing Spider-Man</div>
+            <div class="favourite-meta">Issue #7 • Marvel Comics</div>
+          </div>
+          <div class="favourite-actions">
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+        <div class="favourite-item">
+          <img
+            src="https://placehold.co/200x280"
+            alt="Comic book cover featuring Wonder Woman in a battle stance"
+          />
+          <div class="favourite-info">
+            <div class="favourite-title">Wonder Woman: Rebirth</div>
+            <div class="favourite-meta">Issue #2 • DC Comics</div>
+          </div>
+          <div class="favourite-actions">
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+        <div class="favourite-item">
+          <img
+            src="https://placehold.co/200x280"
+            alt="Comic book cover showing the X-Men team ready for action"
+          />
+          <div class="favourite-info">
+            <div class="favourite-title">Uncanny X-Men</div>
+            <div class="favourite-meta">Issue #10 • Marvel Comics</div>
+          </div>
+          <div class="favourite-actions">
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

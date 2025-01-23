@@ -1,0 +1,140 @@
+<html>
+<head>
+    <title>Geekout - Read Now</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" >
+    <style>
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #2d2d2d;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        .book-title {
+            font-size: 24px;
+            font-weight: 500;
+            color: #00ff00;
+        }
+
+        .reader-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .comic-page {
+            max-width: 800px;
+            max-height: 90vh;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%, -50%);
+            display: flex;
+            gap: 20px;
+            background-color: rgba(45, 45, 45, 0.8);
+            padding: 15px 30px;
+            border-radius: 30px;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: #00ff00;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            color: #ffffff;
+        }
+
+        .page-number {
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Geekout</div>
+        <nav>
+          <a href="index.html" class="nav-item active">
+            <i class="fas fa-th-large"></i>
+            Dashboard
+          </a>
+          <a href="collections.html" class="nav-item">
+            <i class="fas fa-book"></i>
+            My Collections
+          </a>
+          <a href="favourites.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            Favourites
+          </a>
+          <div class="nav-bottom">
+            <a href="settings.html" class="nav-item">
+              <i class="fas fa-cog"></i>
+              Settings
+            </a>
+            <a href="login.html" class="nav-item">
+              <i class="fas fa-sign-out-alt"></i>
+              Log out
+            </a>
+          </div>
+        </nav>
+      </div>
+
+    <div class="main-content">
+        <div class="top-bar">
+            <h1 class="book-title">Batman: The Dark Knight Returns</h1>
+            <div class="profile-section" style="margin-bottom: 0;">
+                <div class="notification-container">
+                  <a href="notifications.html">
+                    <i class="far fa-bell notification-icon"></i>
+                    <span class="notification-badge">3</span>
+                  </a>
+                </div>
+        
+                <div class="profile-pic">
+                  <a href="profile.html"
+                    ><img src="/assets/images/profile-pic.jpg" alt="Profile Photo"
+                  /></a>
+                </div>
+              </div>
+        </div>
+
+        <div class="reader-container">
+            <img src="https://placehold.co/1200x1200" alt="Comic page" class="comic-page">
+        </div>
+
+        <div class="controls">
+            <button class="control-btn"><i class="fas fa-step-backward"></i></button>
+            <button class="control-btn"><i class="fas fa-chevron-left"></i></button>
+            <span class="page-number">Page 1 of 201</span>
+            <button class="control-btn"><i class="fas fa-chevron-right"></i></button>
+            <button class="control-btn"><i class="fas fa-step-forward"></i></button>
+        </div>
+    </div>
+</body>
+</html>

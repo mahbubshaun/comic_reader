@@ -1,0 +1,285 @@
+<html>
+<head>
+    <title>Geekout - Book Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" >
+    <style>
+       
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        
+        .book-details {
+            display: flex;
+            gap: 40px;
+        }
+
+        .book-cover {
+            flex: 0 0 300px;
+        }
+
+        .book-cover img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+
+        .book-info {
+            flex: 1;
+        }
+
+        .book-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #00ff00;
+        }
+
+        .book-author {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .book-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .book-meta {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .meta-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00ff00;
+        }
+
+        .meta-label {
+            font-size: 14px;
+            color: #b0b0b0;
+            text-transform: uppercase;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #00ff00;
+            color: #1e1e1e;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+        }
+
+        .btn-secondary:hover {
+            background-color: #00ff00;
+            color: #1e1e1e;
+        }
+
+        .related-books {
+            margin-top: 60px;
+        }
+
+        .related-books h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #00ff00;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .book-card {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .book-card-info {
+            padding: 15px;
+        }
+
+        .book-card-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #00ff00;
+        }
+
+        .book-card-author {
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Geekout</div>
+        <nav>
+          <a href="index.html" class="nav-item active">
+            <i class="fas fa-th-large"></i>
+            Dashboard
+          </a>
+          <a href="collections.html" class="nav-item">
+            <i class="fas fa-book"></i>
+            My Collections
+          </a>
+          <a href="favourites.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            Favourites
+          </a>
+          <div class="nav-bottom">
+            <a href="settings.html" class="nav-item">
+              <i class="fas fa-cog"></i>
+              Settings
+            </a>
+            <a href="login.html" class="nav-item">
+              <i class="fas fa-sign-out-alt"></i>
+              Log out
+            </a>
+          </div>
+        </nav>
+      </div>
+
+    <div class="main-content">
+        <div class="top-bar">
+            <div class="profile-section">
+                <div class="notification-container">
+                  <a href="notifications.html">
+                    <i class="far fa-bell notification-icon"></i>
+                    <span class="notification-badge">3</span>
+                  </a>
+                </div>
+      
+                <div class="profile-pic">
+                  <a href="profile.html"
+                    ><img src="/assets/images/profile-pic.jpg" alt="Profile Photo"
+                  /></a>
+                </div>
+              </div>
+        </div>
+
+        <div class="book-details">
+            <div class="book-cover">
+                <img src="https://placehold.co/300x450" alt="Batman: The Dark Knight Returns cover">
+            </div>
+            <div class="book-info">
+                <h1 class="book-title">Batman: The Dark Knight Returns</h1>
+                <p class="book-author">By Frank Miller</p>
+                <p class="book-description">
+                    It's been a decade since Bruce Wayne hung up his cape, following most of the other superheroes who had been forced into retirement. Facing the downside of middle age, a restless Bruce Wayne pacifies his frustration with race cars and liquor – but the bat still beckons as he watches his city fall prey to gangs of barbaric criminals known as The Mutants.
+                </p>
+                <div class="book-meta">
+                    <div class="meta-item">
+                        <span class="meta-value">4.8</span>
+                        <span class="meta-label">Rating</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-value">201</span>
+                        <span class="meta-label">Pages</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-value">1986</span>
+                        <span class="meta-label">Year</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a href="read.html"><button class="btn btn-primary">Read Now</button></a>
+                    <button class="btn btn-secondary">Add to Favorites</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="related-books">
+            <h2>Related Books</h2>
+            <div class="book-grid">
+                <div class="book-card">
+                    <img src="https://placehold.co/200x300" alt="Batman: Year One cover">
+                    <div class="book-card-info">
+                        <h3 class="book-card-title">Batman: Year One</h3>
+                        <p class="book-card-author">Frank Miller</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="https://placehold.co/200x300" alt="The Killing Joke cover">
+                    <div class="book-card-info">
+                        <h3 class="book-card-title">The Killing Joke</h3>
+                        <p class="book-card-author">Alan Moore</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="https://placehold.co/200x300" alt="Watchmen cover">
+                    <div class="book-card-info">
+                        <h3 class="book-card-title">Watchmen</h3>
+                        <p class="book-card-author">Alan Moore</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="https://placehold.co/200x300" alt="V for Vendetta cover">
+                    <div class="book-card-info">
+                        <h3 class="book-card-title">V for Vendetta</h3>
+                        <p class="book-card-author">Alan Moore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
