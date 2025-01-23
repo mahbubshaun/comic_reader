@@ -139,6 +139,13 @@
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+      }
+
+      .create-form:hover {
+        /* transform: translateY(-5px); */
+        box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+        border-color: #00ff00;
       }
 
       .form-group {
@@ -307,7 +314,7 @@
       </div>
     </div>
 
-    <div class="create-form">
+    <div class="create-form hidden">
       <form>
         <div class="form-group">
           <label for="collection-name">Collection Name</label>
