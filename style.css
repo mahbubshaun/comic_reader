@@ -114,15 +114,42 @@ body {
   margin-bottom: 50px;
   height: 400px;
   width: 100%;
-  background: url("/assets/images/wal.jpg") no-repeat;
-  background-size: cover;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid #00ff00;
+}
+
+.slideshow-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
 }
 
 .featured-comic h2 {
@@ -136,6 +163,52 @@ body {
   margin-bottom: 25px;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 255, 0, 0.8);
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #00ff00;
 }
 
 .read-now-btn {
@@ -165,12 +238,18 @@ body {
 }
 
 .comics-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr); */
+  display: flex;
   gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth; /* Smooth scrolling */
+  white-space: nowrap; /* Prevent wrapping of items */
+
 }
 
 .comic-card {
+  min-width: 200px; /* Adjust as needed to control card width */
   background-color: #2d2d2d;
   border-radius: 5px;
   overflow: hidden;

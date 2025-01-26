@@ -49,9 +49,43 @@
         <!-- <img src="/assets/images/batman.jpg"> -->
 
         <div class="featured-comic">
-          <h2>Frank Miller</h2>
-          <h3>Batman:<br />The Dark Knight</h3>
-          <a href="details.html" class="read-now-btn">Details</a>
+          <div class="slideshow-container">
+            <div class="slide fade">
+              <img src="assets/images/batman-featured.jpg" alt="Batman: The Dark Knight">
+              <div class="slide-content">
+                <h2>Frank Miller</h2>
+                <h3>Batman:<br />The Dark Knight</h3>
+                <a href="details.html" class="read-now-btn">Details</a>
+              </div>
+            </div>
+            <div class="slide fade">
+              <img src="assets/images/flash-vol1.jpg" alt="The Flash">
+              <div class="slide-content">
+                <h2>Joshua Williamson</h2>
+                <h3>The Flash:<br />Vol. 1</h3>
+                <a href="details.html" class="read-now-btn">Details</a>
+              </div>
+            </div>
+            <div class="slide fade">
+              <img src="assets/images/titans.jpg" alt="Titans">
+              <div class="slide-content">
+                <h2>Andrew Robinson</h2>
+                <h3>Titans:<br />Vol. 2</h3>
+                <a href="details.html" class="read-now-btn">Details</a>
+              </div>
+            </div>
+            
+            <!-- Navigation arrows -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            
+            <!-- Navigation dots -->
+            <div class="dots">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+          </div>
         </div>
 
         <h2 class="section-title">Top Rated Comics</h2>
@@ -96,6 +130,26 @@
               <div class="comic-author">Tom Taylor</div>
             </div>
           </div>
+          <div class="comic-card">
+            <img
+              src="assets/images/suicide-squad.jpg"
+              alt="Suicide Squad comic cover with multiple villain characters"
+            />
+            <div class="comic-info">
+              <div class="comic-title">Test</div>
+              <div class="comic-author">Tom Taylor</div>
+            </div>
+          </div>
+          <div class="comic-card">
+            <img
+              src="assets/images/suicide-squad.jpg"
+              alt="Suicide Squad comic cover with multiple villain characters"
+            />
+            <div class="comic-info">
+              <div class="comic-title">Test</div>
+              <div class="comic-author">Tom Taylor</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -125,5 +179,83 @@
         </div>
       </div>
     </div>
+    <script>
+      // Comics scroll functionality
+      const comicsGrid = document.querySelector(".comics-grid");
+
+      let isDragging = false;
+      let startX, scrollLeft;
+
+      comicsGrid.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        comicsGrid.classList.add("active");
+        startX = e.pageX - comicsGrid.offsetLeft;
+        scrollLeft = comicsGrid.scrollLeft;
+      });
+
+      comicsGrid.addEventListener("mouseleave", () => {
+        isDragging = false;
+        comicsGrid.classList.remove("active");
+      });
+
+      comicsGrid.addEventListener("mouseup", () => {
+        isDragging = false;
+        comicsGrid.classList.remove("active");
+      });
+
+      comicsGrid.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - comicsGrid.offsetLeft;
+        const walk = (x - startX) * 2;
+        comicsGrid.scrollLeft = scrollLeft - walk;
+      });
+
+      // Slideshow functionality
+      let slideIndex = 0;
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+      let slideInterval;
+
+      function showSlide(n) {
+        if (n >= slides.length) slideIndex = 0;
+        if (n < 0) slideIndex = slides.length - 1;
+
+        slides.forEach(slide => {
+          slide.classList.remove('active');
+        });
+        dots.forEach(dot => {
+          dot.classList.remove('active');
+        });
+
+        slides[slideIndex].classList.add('active');
+        dots[slideIndex].classList.add('active');
+      }
+
+      function changeSlide(n) {
+        clearInterval(slideInterval);
+        slideIndex += n;
+        showSlide(slideIndex);
+        startSlideshow();
+      }
+
+      function currentSlide(n) {
+        clearInterval(slideInterval);
+        slideIndex = n - 1;
+        showSlide(slideIndex);
+        startSlideshow();
+      }
+
+      function startSlideshow() {
+        slideInterval = setInterval(() => {
+          slideIndex++;
+          showSlide(slideIndex);
+        }, 5000); // Change slide every 5 seconds
+      }
+
+      // Initialize slideshow
+      showSlide(slideIndex);
+      startSlideshow();
+    </script>
   </body>
 </html>

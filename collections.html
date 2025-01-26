@@ -246,7 +246,7 @@
 
           <div class="profile-pic">
             <a href="profile.html"
-              ><img src="/assets/images/profile-pic.jpg" alt="Profile Photo"
+              ><img src="assets/images/profile-pic.jpg" alt="Profile Photo"
             /></a>
           </div>
         </div>
@@ -350,18 +350,104 @@
     <script>
       const addNewCollection = document.querySelector(".new-collection");
       const formElement = document.querySelector(".create-form");
+      const collectionsGrid = document.querySelector(".collections-grid");
+      const form = document.querySelector(".create-form form");
+      const coverImageInput = document.getElementById("cover-image");
 
+      // Handle clicking outside form
       document.addEventListener("click", function (event) {
-        // Check if the click is outside the form container
-        if (!formElement.contains(event.target)) {
-          formElement.classList.add("hidden"); // Hide the form
+        if (!formElement.contains(event.target) && !addNewCollection.contains(event.target)) {
+          formElement.classList.add("hidden");
         }
       });
 
+      // Show form when clicking "Create New Collection"
       addNewCollection.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevent the click from bubbling up to the document
-        formElement.classList.remove("hidden"); // Show the form
+        event.stopPropagation();
+        formElement.classList.remove("hidden");
       });
+
+      // Handle image preview
+      coverImageInput.addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            // Store the image data URL for later use
+            coverImageInput.dataset.preview = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Handle form submission
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById("collection-name").value.trim();
+        const description = document.getElementById("collection-description").value.trim();
+        const imageUrl = coverImageInput.dataset.preview || 'https://placehold.co/300x150';
+        
+        // Validate form
+        if (!name) {
+          alert("Please enter a collection name");
+          return;
+        }
+
+        // Create new collection card
+        const newCard = document.createElement("div");
+        newCard.className = "collection-card";
+        newCard.innerHTML = `
+          <div class="collection-cover" style="background-image: url('${imageUrl}')"></div>
+          <div class="collection-info">
+            <h3 class="collection-title">${name}</h3>
+            <div class="collection-stats">
+              <span>0 Comics</span>
+              <span>Last updated: Just now</span>
+            </div>
+          </div>
+        `;
+
+        // Insert new card before the "Create New Collection" card
+        collectionsGrid.insertBefore(newCard, addNewCollection.parentElement);
+
+        // Reset form and hide it
+        form.reset();
+        delete coverImageInput.dataset.preview;
+        formElement.classList.add("hidden");
+
+        // Show success message
+        const successMessage = document.createElement("div");
+        successMessage.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background-color: #00ff00;
+          color: #000;
+          padding: 15px 25px;
+          border-radius: 5px;
+          animation: fadeOut 3s forwards;
+        `;
+        successMessage.textContent = "Collection created successfully!";
+        document.body.appendChild(successMessage);
+
+        // Remove success message after animation
+        setTimeout(() => {
+          document.body.removeChild(successMessage);
+        }, 3000);
+      });
+
+      // Add CSS animation for success message
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fadeOut {
+          0% { opacity: 1; }
+          70% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
     </script>
   </body>
 </html>
